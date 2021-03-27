@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AppReservation.Models.Reservation>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.classe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cause)
+            </th>
+            <th></th>
+            <th class="text-center">
+                Confirmé / Refusé
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.classe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+
+                @*<select asp-for="@item.Status" name="status" asp-items="@ViewBag.List">
+                <option class="text-muted" selected disabled>Status</option>
+            </select>*@
+
+                @Html.DisplayFor(modelItem => item.Status, "w-25")
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Cause)
+            </td>
+
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a>*@
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            </td>
+
+            <td class=" d-flex justify-content-center">
+
+                <form asp-action="ChangeStatus" asp-controller="Reservation" class="m-1">
+                    <input type="text" name="Id" value="@item.Id" class="d-none" />
+                    <input type="text" name="status" value="@Status.Confirmé.ToString()" class="d-none" />
+                    <button type="submit" class="btn btn-outline-success rounded-circle font-weight-bolder">&#10003;</button>
+                </form>
+
+                <form asp-action="ChangeStatus" asp-controller="Reservation" class="m-1">
+                    <input type="text" name="Id" value="@item.Id" class="d-none" />
+                    <input type="text" name="status" value="@Status.Refusé.ToString()" class="d-none" />
+                    <button type="submit" class="btn btn-outline-danger rounded-circle font-weight-bolder">&#10007;</button>
+                </form>
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

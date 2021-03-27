@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AppReservation.Models.Reservation>
+
+
+<div class="d-flex justify-content-between ">
+    <a asp-action="Create">Create New</a>
+    <form asp-action="filterParDate" asp-controller="Reservation">
+
+        <label for="filtreDate">Date</label>
+        <input onchange="changeDate()" type="date" name="filterDate" id="filter" />
+        <button type="submit" class="btn p-1">&#128270;</button>
+
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cause)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+
+                    @*<select asp-for="@item.Status" name="status" asp-items="@ViewBag.List">
+                        <option class="text-muted" selected disabled>Status</option>
+                        </select>*@
+
+                    @Html.DisplayFor(modelItem => item.Status, "w-25")
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cause)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+
+    let changeDate = () => {
+        this.parentElement.submit();
+    }
+
+</script>
