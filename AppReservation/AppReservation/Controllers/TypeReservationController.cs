@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AppReservation.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class TypeReservationController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AppReservation.Controllers
 {
-    [Authorize(Roles = "Student")]
+   // [Authorize(Roles = "Student")]
     public class StudentReservationController : Controller
     {
 

@@ -134,7 +134,7 @@ namespace AppReservation.Controllers
         }
 
 
-        //************************************************************** EditUsersRole ******************************************************************************
+        
 
         [HttpGet]
         public async Task<IActionResult> EditUsersRole(string roleId)
