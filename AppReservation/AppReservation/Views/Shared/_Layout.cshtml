@@ -23,40 +23,17 @@
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
 
 </head>
 <body>
+    @{
+        if (ViewData["Title"] != "Log in")
+        {
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-between">
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a></li>
-
-                    <li class="dropdown">
-                        <a><span>Manage Reservation</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a asp-controller="Reservation" asp-action="Index">Reservation</a></li>
-                            <li><a asp-controller="TypeReservation" asp-action="Index">Reservations type</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a><span>Manage Role</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a asp-controller="Role" asp-action="AddRole">Create Role</a></li>
-                            <li><a asp-controller="Role" asp-action="ListRoles">All Roles</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link" asp-controller="Reservation" asp-action="History">History</a></li>
-                </ul>
-               
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
+            <partial name="_Navbar" />
+        }
+    }
     <!-- <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -92,46 +69,47 @@
             </div>
         </nav>
     </header>-->
-    @{ if (ViewData["Title"] == "Home Page")
-                    {
+    @{ if (ViewData["Title"] == "Home Page" || ViewData["Title"] == "Log in")
+        {
 
-        <div class="">
-            <main role="main" class="">
-                @RenderBody()
-            </main>
-        </div> }
-                    else
-                    {
-        <div class="p-5 m-4">
+            <div class="">
+                <main role="main" class="">
+                    @RenderBody()
+                </main>
+            </div> }
+        else
+        {
+           
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div> } }
 
-        </div>
-                        <div class="container">
-                            <main role="main" class="pb-3">
-                                @RenderBody()
-                            </main>
-                        </div> } }
 
-  
+    @{
+        if (ViewData["Title"] != "Log in")
+        {
+            <!-- ======= Footer ======= -->
+            <footer id="footer" class="fixed-bottom">
+                <div class="container">
+                    <div class="copyright">
+                        &copy; Copyright <strong>YouCode</strong>. All Rights Reserved
+                    </div>
+                    <div class="credits">
+                        <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+                        -->
+                        Designed by <a>Zineb Belassiri</a>
+                    </div>
+                </div>
+            </footer><!-- End Footer -->
+        }
+    }
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="fixed-bottom">
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong>YouCode</strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
-                -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-    </footer><!-- End Footer -->
-
-   
 
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/aos/aos.js"></script>

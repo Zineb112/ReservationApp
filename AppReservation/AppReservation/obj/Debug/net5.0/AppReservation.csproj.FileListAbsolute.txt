@@ -649,3 +649,4 @@ C:\Users\Youcode\Desktop\ReservationApp\AppReservation\AppReservation\obj\Debug\
 C:\Users\Youcode\Desktop\ReservationApp\AppReservation\AppReservation\obj\Debug\net5.0\ref\AppReservation.dll
 C:\Users\Youcode\Desktop\ReservationApp\AppReservation\AppReservation\obj\Debug\net5.0\AppReservation.pdb
 C:\Users\Youcode\Desktop\ReservationApp\AppReservation\AppReservation\obj\Debug\net5.0\AppReservation.genruntimeconfig.cache
+C:\Users\Youcode\Desktop\ReservationApp\AppReservation\AppReservation\obj\Debug\net5.0\Razor\Views\Shared\_Navbar.cshtml.g.cs
