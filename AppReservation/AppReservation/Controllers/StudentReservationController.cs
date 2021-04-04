@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AppReservation.Controllers
 {
-    [Authorize(Roles = "Student")]
+    //[Authorize(Roles = "Student")]
     public class StudentReservationController : Controller
     {
 
@@ -63,31 +63,7 @@ namespace AppReservation.Controllers
 
             var reservation = _context.Reservations
                 .First(m => m.Id == id);
-                
-            //ResStudentViewModel resStudentView = new ResStudentViewModel
-            //{
-            //    Id = reservation.Id,
-            //    StudentId = reservation.StudentId,
-            //    Date = reservation.Date,
-            //    Status = reservation.Status,
-            //    Cause = reservation.Cause,
-            //    ReservationTypeId = reservation.Reserv.Id,
-            //    Name = reservation.Reserv.name,
-            //    Student = reservation.Student,
-            //}
-
-            //.Select(m => new ResStudentViewModel
-            // {
-            //     Id = m.Id,
-            //     StudentId = m.StudentId,
-            //     Date = m.Date,
-            //     Status = m.Status,
-            //     Cause = m.Cause,
-            //     ReservationTypeId = m.Reserv.Id,
-            //     Name = m.Reserv.name,
-            //     Student = m.Student,
-            //     //CreateDate = m.CreateDate,
-            // });
+             
             if (reservation == null)
             {
                 return NotFound();

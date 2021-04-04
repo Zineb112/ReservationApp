@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AppReservation.Controllers
 {
-    [Authorize(Roles = "Admin")] 
+    //[Authorize(Roles = "Admin")] 
     public class ReservationController : Controller
     {
         private readonly ApplicationDbContext _context;

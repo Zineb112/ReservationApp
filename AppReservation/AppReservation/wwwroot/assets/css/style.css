@@ -11,8 +11,7 @@
 body {
     background: #fff;
     color: #444;
-    font-family: "Open Sans", sans-serif;
-    
+    font-family: "Open Sans", sans-serif;  
 }
 
 a {
@@ -85,8 +84,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .scrolled-offset {
-    margin-top: 80px;
+    margin-top: 174px;
 }
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
