@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<AppReservation.Models.Reservation>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -41,10 +39,6 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-
-                @*<select asp-for="@item.Status" name="status" asp-items="@ViewBag.List">
-                <option class="text-muted" selected disabled>Status</option>
-            </select>*@
 
                 @Html.DisplayFor(modelItem => item.Status, "w-25")
 
