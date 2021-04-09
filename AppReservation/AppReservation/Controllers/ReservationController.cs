@@ -94,19 +94,7 @@ namespace AppReservation.Controllers
         // POST: ReservationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        /*public async Task <ActionResult> Create(Reservation reservation)
-        {
-            try
-            {
-                await _context.Reservations.AddAsync(reservation);
-                
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
+     
 
         // GET: ReservationController/Edit/5
         public ActionResult Edit(int id)
@@ -155,9 +143,9 @@ namespace AppReservation.Controllers
         public async Task<ActionResult> ChangeStatusAsync(string Id, string status)
         {
 
-            var reservation = await _context.Reservations.FirstAsync(r => r.Id.ToString() == Id);
-            reservation.Status = status;
-            _context.Update(reservation);
+            var booking = await _context.Reservations.FirstAsync(r => r.Id.ToString() == Id);
+            booking.Status = status;
+            _context.Update(booking);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
