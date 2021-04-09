@@ -81,7 +81,7 @@ namespace AppReservation.Controllers
                 Users = new List<string>()
             };
 
-            foreach (IdentityUser user in await userManager.Users.ToListAsync()) // userManager.Users is not awaitble so change to (await userManager.Users.ToListAsync())
+            foreach (IdentityUser user in await userManager.Users.ToListAsync()) 
             {
                 if (await userManager.IsInRoleAsync(user, role.Name))
                 {
@@ -119,9 +119,6 @@ namespace AppReservation.Controllers
 
         }
 
-
-
-
         [HttpPost]
         public async Task<ActionResult> DeleteRole(string id)
         {
@@ -133,8 +130,6 @@ namespace AppReservation.Controllers
             return RedirectToAction(nameof(ListRoles));
         }
 
-
-        
 
         [HttpGet]
         public async Task<IActionResult> EditUsersRole(string roleId)
@@ -191,9 +186,6 @@ namespace AppReservation.Controllers
             {
                 return View("../Errors/NotFound", $"The role Id : {role.Id} cannot be found");
             }
-
-            // role if deja affectté et in model is select il faut le supprimer , ou l'affecté si il est selecté au model mais non affecté before
-
             IdentityResult result = null;
 
             for (int i = 0; i < model.Count; i++)
@@ -219,23 +211,9 @@ namespace AppReservation.Controllers
                         continue;
                     else
                         return RedirectToAction("EditRole", new { Id = roleId });
-                }
-                //if (result.Succeeded)
-                //{
-                //    foreach (var error in result.Errors)
-                //    {
-                //        ModelState.AddModelError("", error.Description);
-                //    }
-
-                //}
+                }  
             }
-
             return RedirectToAction("EditRole", new { id = roleId });
-
         }
-
-
     }
-
-
 }
